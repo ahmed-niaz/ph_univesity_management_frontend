@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { FieldValues, SubmitHandler } from "react-hook-form";
 
 export type TSidebarItem = {
   key: string;
@@ -17,3 +18,26 @@ export type TUserPaths = {
   element?: ReactNode;
   children?: TUserPaths[];
 };
+
+export type TUser = {
+  userId: string;
+  role: string;
+  iat: string;
+  exp: string;
+};
+
+export type TFormProps = {
+  onSubmit: SubmitHandler<FieldValues>;
+  children: ReactNode;
+} & TFormConfig;
+
+export type TInputFormProps = {
+  type: string;
+  name: string;
+  label?: string;
+};
+
+
+export type TFormConfig = {
+  defaultValues ?: Record<string,any>
+}
